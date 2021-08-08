@@ -1,0 +1,44 @@
+import java.util.Scanner;
+ class Main
+ {
+     public static void ss(int ar[], int n)
+     {
+         n = ar.length;
+         for(int i=0;i<n-1;i++)
+         {
+             int min = i;
+             for(int j=i+1;j<n;j++)
+             {
+                 if (ar[j] < ar[i]) {
+                     min = j;
+                 }
+                 if(min!=i)
+                 {
+                     int temp = ar[min];
+                     ar[min] = ar[i];
+                     ar[i] = temp;
+                 }
+             }
+         }
+
+     }
+
+     public static void main(String[] srgs)
+     {
+         Scanner inp = new Scanner(System.in);
+         System.out.println("Enter the size of array");
+         int z = inp.nextInt();
+         int[] arr = new int[z];
+         System.out.println("Enter the elements into the array");
+         for(int i=0;i<z;i++)
+         {
+             arr[i] = inp.nextInt();
+         }
+         ss(arr,z);
+         System.out.println("the sorted array is");
+         for(int i=0;i<z;i++)
+         {
+             System.out.println(arr[i]);
+         }
+     }
+ }
